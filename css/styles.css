@@ -1,0 +1,553 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* HEADER SECTION - Logo and Navigation */
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* LOGO AREA - Logo image and name */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.name {
+    font-family: 'Playfair Display', 'Didot', 'Times New Roman', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* NAVIGATION MENU - Main menu items */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* MAIN CONTENT AREA - White content box */
+main {
+    margin-top: 0px;
+    min-height: calc(100vh - 80px);
+    padding: 2rem 0;
+    position: relative;
+}
+
+.content-area {
+    background: white;
+    min-height: calc(100vh - 140px);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+}
+
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    color: #888;
+    text-align: center;
+}
+
+.empty-state h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state p {
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+
+    /* MOBILE HEADER ADJUSTMENT */
+    header {
+        position: relative; /* Change to relative on mobile */
+    }
+
+    main {
+        margin-top: 0; /* Remove top margin on mobile */
+    }
+
+    .black-gradient-footer {
+        top: 140px; /* Adjust for taller mobile header */
+    }
+
+    .logo {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .logo-text {
+        margin-left: 0;
+    }
+
+    .name {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .content-area {
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+    }
+}
+
+/* SECTIONS - Individual content sections */
+.section {
+    min-height: 100vh; /* Each section takes full viewport height */
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-bottom: 1px solid #eee; /* Optional: separator between sections */
+}
+
+/* HOME SECTION SPECIFIC - Image and text layout */
+/* FLOATING BUBBLES ANIMATION - Little bubbles floating around */
+.home-section {
+    padding: 2rem;
+    background: linear-gradient(135deg, 
+        #e8f4fd 0%, 
+        #d4edfa 25%, 
+        #b3e5fc 50%, 
+        #81d4fa 75%, 
+        #4fc3f7 100%);
+    position: relative;
+    overflow: hidden; /* Hide bubbles that go outside */
+}
+
+/* BUBBLE CONTAINER */
+.bubbles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Don't interfere with clicking */
+    z-index: 1; /* Behind content */
+}
+
+/* INDIVIDUAL BUBBLES */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.7;
+}
+
+/* BUBBLE SIZES - Different sized bubbles */
+.bubble.small {
+    width: 20px;
+    height: 20px;
+    animation-duration: 8s;
+}
+
+.bubble.medium {
+    width: 40px;
+    height: 40px;
+    animation-duration: 6s;
+}
+
+.bubble.large {
+    width: 60px;
+    height: 60px;
+    animation-duration: 10s;
+}
+
+/* FLOATING ANIMATION */
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* DIFFERENT ANIMATION DELAYS */
+.bubble:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bubble:nth-child(2) { left: 20%; animation-delay: 2s; }
+.bubble:nth-child(3) { left: 30%; animation-delay: 4s; }
+.bubble:nth-child(4) { left: 40%; animation-delay: 6s; }
+.bubble:nth-child(5) { left: 50%; animation-delay: 1s; }
+.bubble:nth-child(6) { left: 60%; animation-delay: 3s; }
+.bubble:nth-child(7) { left: 70%; animation-delay: 5s; }
+.bubble:nth-child(8) { left: 80%; animation-delay: 7s; }
+.bubble:nth-child(9) { left: 90%; animation-delay: 2.5s; }
+.bubble:nth-child(10) { left: 15%; animation-delay: 4.5s; }
+
+/* ENSURE CONTENT STAYS ON TOP */
+.home-content {
+    position: relative;
+    z-index: 2;
+}
+
+.home-content {
+    display: flex;
+    align-items: left;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* LEFT SIDE - Image fills half the box */
+.home-image {
+    flex: 0.8; /* Reduce from 1 to 0.8 - takes less space */
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align to left */
+    margin-left: -2rem; /* Negative margin shifts left */
+}
+
+.home-image img {
+    width: 100%;
+    height: auto;
+    max-height: 120vh; /* Limit height to 80% of viewport */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+/* RIGHT SIDE - Text content */
+.home-text {
+    flex: 1;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: -100px; /* Move up by 80px */
+}
+.home-text h2 {
+    font-family: 'Playfair Display', 'Didot', 'Times New Roman', serif;
+    font-size: clamp(3.5rem, 5vw, 5.5rem); /* Much bigger */
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-left: 100px;
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.home-text p {
+    font-size: 1.2rem;
+    color: #171616;
+    max-width: 400px;
+    line-height: 1.8;
+    margin-left: 100px;
+}
+
+/* ABOUT SECTION SPECIFIC - Align heading to match home section */
+/* ABOUT SECTION SPECIFIC - Better text formatting */
+#about {
+    text-align: left;
+    justify-content: flex-start;
+    padding-top: 6rem;
+    padding-bottom: 1rem; /* Add extra bottom padding */
+    min-height: 120vh; /* Make just this section taller */
+}
+
+#about h2 {
+    margin-left: 100px;
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+#about p {
+    margin-left: 100px;
+    margin-right: 100px; /* Add right margin to balance */
+    margin-top: -2rem;
+    font-size: 1.2rem;
+    color: #060606;
+    max-width: calc(100% - 200px); /* Full width minus left and right margins */
+    line-height: 1.8;
+    text-align: justify; /* Justify text to fill width evenly */
+    word-wrap: break-word; /* Break long words if needed */
+    hyphens: auto; /* Add hyphens for better word breaking */
+}
+#about h3 {
+    margin-left: 100px;
+    margin-top: 2rem; /* Add this to move it down */
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+#about p2 {
+    margin-left: 100px;
+    margin-right: 100px; /* Add right margin to balance */
+    font-size: 1.2rem;
+    margin-top: -3rem;
+    color: #060606;
+    max-width: calc(100% - 200px); /* Full width minus left and right margins */
+    line-height: 1.8;
+    text-align: justify; /* Justify text to fill width evenly */
+    word-wrap: break-word; /* Break long words if needed */
+    hyphens: auto; /* Add hyphens for better word breaking */
+}
+
+#about h4 {
+    margin-left: 100px;
+    margin-top: 2rem; /* Add this to move it down */
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 3rem;
+    font-weight: 700;
+    align-self: flex-start;
+}
+
+#about p3 {
+    margin-left: 100px;
+    margin-right: 100px; /* Add right margin to balance */
+    font-size: 1.2rem;
+    margin-top: -3rem;
+    color: #060606;
+    max-width: calc(100% - 200px); /* Full width minus left and right margins */
+    line-height: 1.8;
+    text-align: justify; /* Justify text to fill width evenly */
+    word-wrap: break-word; /* Break long words if needed */
+    hyphens: auto; /* Add hyphens for better word breaking */
+}
+
+/* ABOUT CONTENT LAYOUT - Image and Quote */
+.about-content {
+    display: flex;
+    align-items: center;
+    margin: 4rem 0;
+    gap: 3rem;
+    max-width: calc(100% - 200px);
+    margin-left: 100px;
+}
+
+/* LEFT SIDE - Image */
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* RIGHT SIDE - Quote */
+.about-quote {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-quote blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    position: relative;
+    padding: 2rem;
+}
+
+.about-quote blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: #81d4fa;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+}
+
+.about-quote blockquote::after {
+    content: '"';
+    font-size: 4rem;
+    color: #81d4fa;
+    position: absolute;
+    bottom: -30px;
+    right: -10px;
+}
+
+/* MOBILE RESPONSIVE - Stack image and text vertically */
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+    }
+    
+    .home-image img {
+        max-height: 50vh;
+    }
+    
+    .home-text {
+        padding: 1rem;
+    }
+    
+    .home-text h2 {
+        font-size: 2rem;
+    }
+}
+
+.section:last-child {
+    border-bottom: none; /* Remove border from last section */
+}
+
+.section h2 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.section p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+/* SMOOTH SCROLLING */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ACTIVE NAVIGATION HIGHLIGHTING */
+.nav-menu a.active {
+    background: #333;
+    color: white;
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .content-area {
+        padding: 1rem;
+    }
+
+    .name {
+        font-size: 1.2rem;
+    }
+
+    .black-gradient-footer {
+        top: 160px; /* Adjust for even taller mobile header */
+    }
+}

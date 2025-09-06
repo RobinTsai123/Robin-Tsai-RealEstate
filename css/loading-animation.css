@@ -1,0 +1,145 @@
+/* LOADING ANIMATION - Mid-Autumn Festival Theme */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #e94560 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+}
+
+/* Signature */
+.signature-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.signature-text {
+    font-family: 'Brush Script MT', cursive; /* cursive */
+    font-size: 7rem;
+    color: #fefefd;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8),
+                 0 0 60px rgba(255, 215, 0, 0.6),
+                 0 0 20px rgba(255, 140, 0, 0.4);
+    display: inline-block;
+    font-weight: bold;
+}
+
+.letter { display: inline-block; opacity: 0; transform: translateY(-100px) rotateX(90deg); animation: letterDrop 0.6s ease-out forwards; }
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.3s; }
+.letter:nth-child(4) { animation-delay: 0.4s; }
+.letter:nth-child(5) { animation-delay: 0.5s; }
+.letter:nth-child(6) { animation-delay: 0.7s; }
+.letter:nth-child(7) { animation-delay: 0.8s; }
+.letter:nth-child(8) { animation-delay: 0.9s; }
+.letter:nth-child(9) { animation-delay: 1.0s; }
+.letter:nth-child(10) { animation-delay: 1.1s; }
+
+@keyframes letterDrop {
+    0% { opacity: 0; transform: translateY(-100px) rotateX(90deg); }
+    50% { opacity: 1; transform: translateY(10px) rotateX(0deg); }
+    100% { opacity: 1; transform: translateY(0) rotateX(0deg);
+        text-shadow: 0 0 40px rgba(251, 251, 247, 0.9), 0 0 80px rgba(227, 47, 6, 0.7), 0 0 20px rgba(255, 69, 0, 0.4);
+    }
+}
+
+.slogan-text {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #d0dd10;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: 0 0 15px rgba(255, 204, 153, 0.5);
+    animation: slideUp 1.5s ease-out 2s forwards;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+@keyframes slideUp { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* Full Moon */
+.full-moon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 30% 30%, #fff9e6, #ffd700);
+    border-radius: 50%;
+    top: 15%;
+    right: 10%;
+    box-shadow: 0 0 50px rgba(255, 215, 0, 0.6), inset -10px -10px 20px rgba(0, 0, 0, 0.1);
+    animation: moonGlow 3s infinite ease-in-out;
+}
+
+@keyframes moonGlow {
+    0%, 100% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.6), inset -10px -10px 20px rgba(0,0,0,0.1); }
+    50% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.8), inset -10px -10px 20px rgba(0,0,0,0.1); }
+}
+
+/* Chang’e silhouette */
+.change-figure {
+    position: absolute;
+    top: 10%;
+    right: 12%;
+    width: 100px;
+    height: 180px;
+    background: url('change-silhouette.png') no-repeat center/contain;
+    opacity: 0.7;
+    animation: floatChange 6s infinite ease-in-out;
+}
+
+@keyframes floatChange {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-15px); opacity: 1; }
+}
+
+/* Jumping Rabbits */
+.jumping-rabbits { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.rabbit { position: absolute; width: 40px; height: 40px; animation: jumpRabbit 3s infinite ease-in-out; }
+.rabbit::before { content: ''; position: absolute; width: 24px; height: 18px; background: #fff; border-radius: 50% 50% 40% 40%; bottom:0; left:50%; transform: translateX(-50%); box-shadow:0 0 15px rgba(255,255,255,0.5);}
+.rabbit::after { content: ''; position: absolute; width:12px; height:12px; background:#fff; border-radius:50%; bottom:8px; left:50%; transform:translateX(-50%); box-shadow:-4px -3px 0 -1px #fff, 4px -3px 0 -1px #fff,0 0 12px rgba(255,255,255,0.5);}
+.rabbit:nth-child(1) {bottom:10%; left:15%; animation-delay:0s;}
+.rabbit:nth-child(2) {bottom:15%; left:75%; animation-delay:1s;}
+.rabbit:nth-child(3) {bottom:8%; left:45%; animation-delay:2s;}
+.rabbit:nth-child(4) {bottom:12%; left:30%; animation-delay:1.5s;}
+.rabbit:nth-child(5) {bottom:20%; left:60%; animation-delay:2.5s;}
+@keyframes jumpRabbit { 0%,100%{transform:translateY(0) scale(1);} 25%{transform:translateY(-20px) scale(1.1);} 50%{transform:translateY(-35px) scale(1.05);} 75%{transform:translateY(-15px) scale(1.08);} }
+
+/* Falling Leaves */
+.falling-leaves { position: absolute; width:100%; height:100%; pointer-events:none; }
+.leaf { position:absolute; width:12px; height:12px; background:#ffa500; border-radius:0 100% 0 100%; animation:fallLeaf 6s infinite linear; opacity:0.8; }
+.leaf:nth-child(1){left:10%; animation-delay:0s;}
+.leaf:nth-child(2){left:25%; animation-delay:1s;}
+.leaf:nth-child(3){left:40%; animation-delay:2s;}
+.leaf:nth-child(4){left:60%; animation-delay:3s;}
+.leaf:nth-child(5){left:75%; animation-delay:4s;}
+.leaf:nth-child(6){left:90%; animation-delay:5s;}
+@keyframes fallLeaf { 0%{transform:translateY(-20px) rotate(0deg); opacity:0;} 10%{opacity:0.8;} 90%{opacity:0.8;} 100%{transform:translateY(calc(100vh + 20px)) rotate(360deg); opacity:0;} }
+
+/* Blessings */
+.blessing-text { text-align:center; margin-top:1.5rem; }
+.chinese-blessing { font-size:2.2rem; font-weight:bold; color:#ffeb99; text-shadow:0 0 20px rgba(255,223,0,0.8),0 0 40px rgba(255,165,0,0.6),0 0 60px rgba(255,69,0,0.4); margin-bottom:0.5rem; }
+.english-blessing { font-size:1.6rem; color:#ffe680; text-shadow:0 0 15px rgba(255,215,0,0.6),0 0 30px rgba(255,140,0,0.4); }
+
+/* RESPONSIVE */
+@media (max-width:768px){.signature-text{font-size:4.5rem;}.chinese-blessing{font-size:1.8rem;}.english-blessing{font-size:1.4rem;}}
+@media (max-width:480px){.signature-text{font-size:3.5rem;}.chinese-blessing{font-size:1.6rem;}.english-blessing{font-size:1.2rem;}}

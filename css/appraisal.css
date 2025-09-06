@@ -1,0 +1,303 @@
+/* APPRAISAL SECTION - Mobile First */
+
+/* MOBILE FIRST - Base styles */
+.appraisal-section {
+    position: relative;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, 
+        #e8f4fd 0%, 
+        #d4edfa 25%, 
+        #b3e5fc 50%, 
+        #81d4fa 75%, 
+        #4fc3f7 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    min-height: 100vh;
+    width: 100vw; /* Full viewport width */
+    margin-left: calc(-50vw + 50%); /* Center and extend to edges */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appraisal-section h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.appraisal-section p {
+    font-size: 0.85rem;
+}
+
+.permission-note {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 2rem;
+    margin-top: -0.5rem;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+}
+
+.appraisal-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+.feedback-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+}
+
+.selfies-column, .whatsapp-column {
+    width: 100%;
+}
+
+.selfies-row, .whatsapp-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.selfies-row img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.whatsapp-row img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    max-height: 180px;
+}
+
+/* Comments Section - Mobile First */
+.comments-section {
+    margin-top: 2rem;
+    z-index: 2;
+    position: relative;
+    width: 100%;
+}
+
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.comment-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+    width: 100%;
+}
+
+.comment-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #444;
+    margin: 0;
+    text-align: left;
+}
+
+.comment-card::before {
+    content: '"';
+    font-size: 1.5rem;
+    color: #007bff;
+    opacity: 0.3;
+    position: relative;
+    top: 5px;
+}
+
+.comment-card::after {
+    content: '"';
+    font-size: 1.5rem;
+    color: #007bff;
+    opacity: 0.3;
+    float: right;
+    position: relative;
+    top: -10px;
+}
+
+/* SMALL MOBILE - 480px and up */
+@media (min-width: 480px) {
+    .appraisal-section {
+        padding: 2.5rem 1rem;
+    }
+    
+    .appraisal-section h2 {
+        font-size: 2rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    .appraisal-section h3 {
+        font-size: 1.3rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    .permission-note {
+        font-size: 0.9rem;
+    }
+    
+    .selfies-row img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .whatsapp-row img {
+        max-height: 200px;
+    }
+    
+    .comment-card {
+        padding: 1.5rem;
+    }
+    
+    .comment-card p {
+        font-size: 0.9rem;
+    }
+    
+    .comment-card::before,
+    .comment-card::after {
+        font-size: 2rem;
+    }
+}
+
+/* TABLET - 768px and up */
+@media (min-width: 768px) {
+    .appraisal-section {
+        padding: 3rem 2rem;
+        min-height: 100vh;
+    }
+    
+    .appraisal-section h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    .feedback-container {
+        flex-direction: row;
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .selfies-column, .whatsapp-column {
+        flex: 1;
+    }
+    
+    .selfies-row, .whatsapp-row {
+        gap: 1rem;
+        justify-content: flex-start;
+    }
+    
+    .selfies-row img {
+        width: 200px;
+        height: 320px;
+    }
+    
+    .whatsapp-row img {
+        max-height: 250px;
+        max-width: 400px;
+    }
+    
+    .comments-container {
+        flex-direction: row;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+    
+    .comment-card {
+        flex: 1;
+        max-width: 48%;
+        padding: 1.8rem;
+    }
+    
+    .comment-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: justify;
+    }
+    
+    .comment-card::before,
+    .comment-card::after {
+        font-size: 2.5rem;
+    }
+}
+
+/* DESKTOP - 1024px and up */
+@media (min-width: 1024px) {
+    .appraisal-section {
+        padding: 3rem;
+    }
+    
+    .appraisal-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    .appraisal-section h3 {
+        font-size: 1.5rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    .selfies-row img {
+        width: 300px;
+        height: 500px;
+    }
+    
+    .whatsapp-row img {
+        max-width: 600px;
+        max-height: 300px;
+    }
+    
+    .comments-section {
+        margin-top: 3rem;
+    }
+    
+    .comments-container {
+        margin-top: 2rem;
+    }
+    
+    .comment-card {
+        padding: 2rem;
+    }
+    
+    .comment-card p {
+        font-size: 1rem;
+    }
+    
+    .comment-card::before {
+        font-size: 3rem;
+        top: 10px;
+    }
+    
+    .comment-card::after {
+        font-size: 3rem;
+        top: -20px;
+    }
+}
