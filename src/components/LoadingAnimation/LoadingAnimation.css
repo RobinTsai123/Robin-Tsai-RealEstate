@@ -1,0 +1,366 @@
+/* LOADING ANIMATION - Deepavali Festival Theme */
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 25%, #6a1b9a 50%, #d81b60 75%, #ff6f00 100%);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    overflow: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Signature */
+.signature-container {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+}
+
+.signature-text {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 7rem;
+    color: #ffb300;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 30px rgba(255, 179, 0, 0.8),
+                 0 0 60px rgba(255, 111, 0, 0.6),
+                 0 0 20px rgba(255, 64, 129, 0.4);
+    display: inline-block;
+    font-weight: bold;
+}
+
+.letter { 
+    display: inline-block; 
+    opacity: 0; 
+    transform: translateY(-100px) rotateX(90deg); 
+    animation: letterDrop 0.6s ease-out forwards; 
+}
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.2s; }
+.letter:nth-child(3) { animation-delay: 0.3s; }
+.letter:nth-child(4) { animation-delay: 0.4s; }
+.letter:nth-child(5) { animation-delay: 0.5s; }
+.letter:nth-child(6) { animation-delay: 0.7s; }
+.letter:nth-child(7) { animation-delay: 0.8s; }
+.letter:nth-child(8) { animation-delay: 0.9s; }
+.letter:nth-child(9) { animation-delay: 1.0s; }
+.letter:nth-child(10) { animation-delay: 1.1s; }
+
+@keyframes letterDrop {
+    0% { opacity: 0; transform: translateY(-100px) rotateX(90deg); }
+    50% { opacity: 1; transform: translateY(10px) rotateX(0deg); }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0) rotateX(0deg);
+        text-shadow: 0 0 40px rgba(255, 179, 0, 0.9), 
+                     0 0 80px rgba(255, 111, 0, 0.7), 
+                     0 0 20px rgba(255, 64, 129, 0.4);
+    }
+}
+
+.slogan-text {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #ffd54f;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(20px);
+    text-shadow: 0 0 15px rgba(255, 213, 79, 0.5);
+    animation: slideUp 1.5s ease-out 2s forwards;
+    max-width: 900px;
+    line-height: 1.6;
+}
+
+@keyframes slideUp { 
+    0% { opacity: 0; transform: translateY(20px); } 
+    100% { opacity: 1; transform: translateY(0); } 
+}
+
+/* Rangoli Pattern Background */
+.rangoli-pattern {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.15;
+    animation: rotateRangoli 20s linear infinite;
+}
+
+.rangoli-pattern::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, transparent 40%, #ff6f00 41%, transparent 42%),
+        radial-gradient(circle at 50% 50%, transparent 60%, #ffb300 61%, transparent 62%),
+        radial-gradient(circle at 50% 50%, transparent 80%, #d81b60 81%, transparent 82%);
+    border-radius: 50%;
+}
+
+@keyframes rotateRangoli {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Diyas (Oil Lamps) */
+.diyas-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.diya {
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    animation: flicker 2s infinite ease-in-out;
+}
+
+.diya-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 15px;
+    background: linear-gradient(to bottom, #d4a574, #8b6f47);
+    border-radius: 0 0 50% 50%;
+    box-shadow: inset 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.diya-flame {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 25px;
+    background: linear-gradient(to top, #ff6f00, #ffb300, #ffd54f);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 20px rgba(255, 179, 0, 0.8),
+                0 0 40px rgba(255, 111, 0, 0.6);
+    animation: flameFlicker 0.1s infinite alternate;
+}
+
+.diya-flame::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #ffd54f;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 213, 79, 0.9);
+}
+
+@keyframes flameFlicker {
+    0% { transform: translateX(-50%) scaleY(1); }
+    100% { transform: translateX(-50%) scaleY(1.05); }
+}
+
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
+}
+
+.diya:nth-child(1) { bottom: 15%; left: 10%; animation-delay: 0s; }
+.diya:nth-child(2) { bottom: 12%; left: 25%; animation-delay: 0.3s; }
+.diya:nth-child(3) { bottom: 18%; left: 75%; animation-delay: 0.6s; }
+.diya:nth-child(4) { bottom: 14%; left: 85%; animation-delay: 0.9s; }
+.diya:nth-child(5) { bottom: 10%; left: 50%; animation-delay: 1.2s; }
+
+/* Fireworks */
+.fireworks-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    animation: explode 2s ease-out infinite;
+}
+
+.firework::before,
+.firework::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+        box-shadow: 
+            0 0 0 0 #ffb300,
+            0 0 0 0 #ff6f00,
+            0 0 0 0 #d81b60,
+            0 0 0 0 #9c27b0,
+            0 0 0 0 #00bcd4;
+    }
+    20% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2);
+        box-shadow: 
+            100px 0 20px 5px #ffb300,
+            -100px 0 20px 5px #ff6f00,
+            0 100px 20px 5px #d81b60,
+            0 -100px 20px 5px #9c27b0,
+            70px 70px 20px 5px #00bcd4,
+            -70px -70px 20px 5px #ffb300,
+            -70px 70px 20px 5px #ff6f00,
+            70px -70px 20px 5px #d81b60;
+    }
+}
+
+.firework:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.firework:nth-child(2) { top: 30%; right: 15%; animation-delay: 0.8s; }
+.firework:nth-child(3) { top: 15%; left: 60%; animation-delay: 1.6s; }
+.firework:nth-child(4) { top: 25%; right: 30%; animation-delay: 0.4s; }
+.firework:nth-child(5) { top: 35%; left: 40%; animation-delay: 1.2s; }
+
+/* Floating Petals */
+.petals-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.petal {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: linear-gradient(135deg, #ff6f00, #ff9100);
+    border-radius: 50% 0 50% 0;
+    animation: floatPetal 8s infinite linear;
+    opacity: 0.8;
+}
+
+.petal:nth-child(1) { left: 5%; animation-delay: 0s; }
+.petal:nth-child(2) { left: 20%; animation-delay: 1.5s; }
+.petal:nth-child(3) { left: 35%; animation-delay: 3s; }
+.petal:nth-child(4) { left: 50%; animation-delay: 4.5s; }
+.petal:nth-child(5) { left: 65%; animation-delay: 6s; }
+.petal:nth-child(6) { left: 80%; animation-delay: 7.5s; }
+.petal:nth-child(7) { left: 95%; animation-delay: 2s; }
+
+@keyframes floatPetal {
+    0% {
+        transform: translateY(-20px) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.8; }
+    100% {
+        transform: translateY(calc(100vh + 20px)) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Blessings */
+.blessing-text {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.hindi-blessing {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffb300;
+    text-shadow: 0 0 20px rgba(255, 179, 0, 0.8),
+                 0 0 40px rgba(255, 111, 0, 0.6),
+                 0 0 60px rgba(216, 27, 96, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.english-blessing {
+    font-size: 1.8rem;
+    color: #ffd54f;
+    text-shadow: 0 0 15px rgba(255, 213, 79, 0.6),
+                 0 0 30px rgba(255, 111, 0, 0.4);
+}
+
+/* Sparkles */
+.sparkles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffd54f;
+    border-radius: 50%;
+    animation: sparkleAnim 1.5s infinite ease-in-out;
+    box-shadow: 0 0 10px rgba(255, 213, 79, 0.8);
+}
+
+.sparkle:nth-child(odd) { animation-delay: 0s; }
+.sparkle:nth-child(even) { animation-delay: 0.75s; }
+
+@keyframes sparkleAnim {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
+}
+
+.sparkle:nth-child(1) { top: 20%; left: 15%; }
+.sparkle:nth-child(2) { top: 30%; right: 20%; }
+.sparkle:nth-child(3) { top: 40%; left: 25%; }
+.sparkle:nth-child(4) { top: 50%; right: 30%; }
+.sparkle:nth-child(5) { top: 60%; left: 35%; }
+.sparkle:nth-child(6) { top: 70%; right: 25%; }
+.sparkle:nth-child(7) { top: 25%; left: 70%; }
+.sparkle:nth-child(8) { top: 55%; left: 80%; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .signature-text { font-size: 4.5rem; }
+    .hindi-blessing { font-size: 2rem; }
+    .english-blessing { font-size: 1.5rem; }
+    .slogan-text { font-size: 1.6rem; }
+    .rangoli-pattern { width: 200px; height: 200px; }
+}
+
+@media (max-width: 480px) {
+    .signature-text { font-size: 3.5rem; }
+    .hindi-blessing { font-size: 1.7rem; }
+    .english-blessing { font-size: 1.3rem; }
+    .slogan-text { font-size: 1.4rem; padding: 0 1rem; }
+    .rangoli-pattern { width: 150px; height: 150px; }
+    .diya { transform: scale(0.8); }
+}

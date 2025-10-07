@@ -1,0 +1,301 @@
+/* ABOUT SECTION - Mobile First */
+
+/* MOBILE FIRST - Base styles */
+#about {
+    text-align: center;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: white;
+}
+
+#about h2 {
+    margin: 0 1rem 1.5rem 1rem;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+#about p {
+    margin: 0 1rem;
+    font-size: 0.95rem;
+    color: #060606;
+    max-width: calc(100% - 2rem);
+    line-height: 1.6;
+    text-align: left;
+    word-wrap: break-word;
+    hyphens: auto;
+    margin-bottom: 1rem;
+}
+
+#about h3 {
+    margin: 1.5rem 1rem 1.5rem 1rem;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+#about .p2 {
+    margin: 0 1rem;
+    font-size: 0.95rem;
+    color: #060606;
+    max-width: calc(100% - 2rem);
+    line-height: 1.6;
+    text-align: left;
+    word-wrap: break-word;
+    hyphens: auto;
+    margin-bottom: 1rem;
+}
+
+#about h4 {
+    margin: 1.5rem 1rem 1.5rem 1rem;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+#about .p3 {
+    margin: 0 1rem;
+    font-size: 0.95rem;
+    color: #060606;
+    max-width: calc(100% - 2rem);
+    line-height: 1.6;
+    text-align: left;
+    word-wrap: break-word;
+    hyphens: auto;
+    margin-bottom: 2rem;
+}
+
+/* MOBILE FIRST - About content layout */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 1rem;
+    gap: 1.5rem;
+    max-width: calc(100% - 2rem);
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    order: 1;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    order: 2;
+}
+
+.about-quote blockquote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #333;
+    text-align: center;
+    line-height: 1.4;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    position: relative;
+    padding: 0.8rem;
+}
+
+.about-quote blockquote::before {
+    content: '"';
+    font-size: 1.5rem;
+    color: #81d4fa;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+}
+
+.about-quote blockquote::after {
+    content: '"';
+    font-size: 1.5rem;
+    color: #81d4fa;
+    position: absolute;
+    bottom: -15px;
+    right: -5px;
+}
+
+/* SMALL MOBILE - 480px and up */
+@media (min-width: 480px) {
+    #about {
+        padding: 2.5rem 1rem;
+    }
+    
+    #about h2, #about h3, #about h4 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 2rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    #about p, #about .p2, #about .p3 {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .about-quote blockquote {
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+    
+    .about-quote blockquote::before,
+    .about-quote blockquote::after {
+        font-size: 2.5rem;
+    }
+}
+
+/* TABLET - 768px and up */
+@media (min-width: 768px) {
+    #about {
+        text-align: left;
+        padding: 4rem 2rem;
+        min-height: 100vh;
+    }
+    
+    #about h2, #about h3, #about h4 {
+        margin-left: 50px;
+        margin-right: 50px;
+        font-size: 2.5rem;
+        text-align: left;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    #about p, #about .p2, #about .p3 {
+        margin-left: 50px;
+        margin-right: 50px;
+        font-size: 1.1rem;
+        max-width: calc(100% - 100px);
+        text-align: justify;
+        line-height: 1.8;
+    }
+    
+    .about-content {
+        flex-direction: row;
+        margin: 3rem 50px;
+        gap: 2rem;
+        max-width: calc(100% - 100px);
+    }
+    
+    .about-image {
+        flex: 1;
+        justify-content: flex-start;
+    }
+    
+    .about-image img {
+        max-width: 350px;
+    }
+    
+    .about-quote {
+        flex: 1;
+    }
+    
+    .about-quote blockquote {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .about-quote blockquote::before,
+    .about-quote blockquote::after {
+        font-size: 3rem;
+    }
+}
+
+/* DESKTOP - 1024px and up */
+@media (min-width: 1024px) {
+    #about {
+        padding-top: 6rem;
+        padding-bottom: 1rem;
+        min-height: 120vh;
+    }
+    
+    #about h2, #about h3, #about h4 {
+        margin-left: 100px;
+        margin-right: 100px;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        font-family: 'Comic Sans MS', cursive;
+    }
+    
+    #about h3 {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    #about h4 {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    #about p {
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: -2rem;
+        font-size: 1.2rem;
+        max-width: calc(100% - 200px);
+    }
+    
+    #about .p2 {
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: -3rem;
+        font-size: 1.2rem;
+        max-width: calc(100% - 200px);
+    }
+    
+    #about .p3 {
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: -3rem;
+        font-size: 1.2rem;
+        max-width: calc(100% - 200px);
+    }
+    
+    .about-content {
+        margin: 4rem 100px;
+        gap: 3rem;
+        max-width: calc(100% - 200px);
+    }
+    
+    .about-image img {
+        max-width: 400px;
+    }
+    
+    .about-quote blockquote {
+        font-size: 1.8rem;
+        padding: 2rem;
+    }
+    
+    .about-quote blockquote::before {
+        font-size: 4rem;
+        top: -10px;
+        left: -10px;
+    }
+    
+    .about-quote blockquote::after {
+        font-size: 4rem;
+        bottom: -30px;
+        right: -10px;
+    }
+}
