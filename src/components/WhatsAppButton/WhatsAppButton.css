@@ -1,0 +1,110 @@
+/* WhatsApp Floating Button - Mobile First */
+
+/* MOBILE FIRST - Base styles */
+.whatsapp-float-circle {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    background: #25d366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+.whatsapp-float-circle svg {
+    width: 18px;
+    height: 18px;
+}
+
+.whatsapp-float-circle:hover {
+    background: #128c7e;
+    transform: scale(1.05);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+
+.whatsapp-float-circle:active {
+    transform: scale(0.95);
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 6px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+/* SMALL MOBILE - 480px and up */
+@media (min-width: 480px) {
+    .whatsapp-float-circle {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .whatsapp-float-circle svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .whatsapp-float-circle:hover {
+        transform: scale(1.1);
+    }
+}
+
+/* TABLET - 768px and up */
+@media (min-width: 768px) {
+    .whatsapp-float-circle {
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+    }
+    
+    .whatsapp-float-circle svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    @keyframes whatsapp-pulse {
+        0% {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 8px rgba(37, 211, 102, 0);
+        }
+        100% {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+    }
+}
+
+/* DESKTOP - 1024px and up */
+@media (min-width: 1024px) {
+    .whatsapp-float-circle {
+        bottom: 25px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .whatsapp-float-circle svg {
+        width: 24px;
+        height: 24px;
+    }
+}
