@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/Robin-Tsai-RealEstate/static/css/main.4820340f.css",
-    "main.js": "/Robin-Tsai-RealEstate/static/js/main.3eeb9090.js",
-    "index.html": "/Robin-Tsai-RealEstate/index.html",
-    "main.4820340f.css.map": "/Robin-Tsai-RealEstate/static/css/main.4820340f.css.map",
-    "main.3eeb9090.js.map": "/Robin-Tsai-RealEstate/static/js/main.3eeb9090.js.map"
+    "main.css": "/static/css/main.4820340f.css",
+    "main.js": "/static/js/main.13c616af.js",
+    "index.html": "/index.html",
+    "main.4820340f.css.map": "/static/css/main.4820340f.css.map",
+    "main.13c616af.js.map": "/static/js/main.13c616af.js.map"
   },
   "entrypoints": [
     "static/css/main.4820340f.css",
-    "static/js/main.3eeb9090.js"
+    "static/js/main.13c616af.js"
   ]
 }
