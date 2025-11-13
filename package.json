@@ -4,6 +4,7 @@
   "homepage": "https://RobinTsai123.github.io/Robin-Tsai-RealEstate",
   "private": true,
   "dependencies": {
+    "gsap": "^3.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
