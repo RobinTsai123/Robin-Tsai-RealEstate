@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Robin-Tsai-RealEstate/static/css/main.c71632ac.css",
+    "main.js": "/Robin-Tsai-RealEstate/static/js/main.c0100f81.js",
+    "index.html": "/Robin-Tsai-RealEstate/index.html",
+    "main.c71632ac.css.map": "/Robin-Tsai-RealEstate/static/css/main.c71632ac.css.map",
+    "main.c0100f81.js.map": "/Robin-Tsai-RealEstate/static/js/main.c0100f81.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c71632ac.css",
+    "static/js/main.c0100f81.js"
+  ]
+}
