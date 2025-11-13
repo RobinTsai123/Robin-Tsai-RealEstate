@@ -1,3 +1,4 @@
+// Header.jsx
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
@@ -7,34 +8,60 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'services', 'projects', 'appraisal'];
-      const headerHeight = 80;
+      const headerHeight = document.querySelector('header')?.offsetHeight || 80;
       
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= headerHeight && rect.bottom > headerHeight) {
-            setActiveSection(section);
-            break;
-          }
+      // Use the same offset logic as navigation
+      let extraOffset;
+      if (window.innerWidth < 768) {
+        extraOffset = 120; // Mobile offset (positive for scroll detection)
+      } else {
+        extraOffset = 120; // Desktop/Tablet offset (positive for scroll detection)
+      }
+      
+      const scrollPosition = window.scrollY + headerHeight + extraOffset;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const element = document.getElementById(sections[i]);
+        if (element && element.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
         }
       }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     const section = document.getElementById(sectionId);
-    if (section) {
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const targetPosition = section.offsetTop - headerHeight;
+    const header = document.querySelector('header');
+    
+    if (section && header) {
+      const headerHeight = header.offsetHeight;
+      
+      // Responsive offset based on screen width
+      let extraOffset;
+      if (window.innerWidth < 768) {
+        extraOffset = -120; // Mobile
+      } else {
+        extraOffset = -120; // Desktop/Tablet
+      }
+      
+      const targetPosition = section.offsetTop - headerHeight - extraOffset;
+      
       window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
       });
+      
+      setActiveSection(sectionId);
     }
   };
 

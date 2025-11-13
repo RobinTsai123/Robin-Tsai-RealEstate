@@ -2,8 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import './Appraisal.css';
 
 const Appraisal = () => {
-  const selfies = ['selfie1.jpg', 'selfie2.jpg', 'selfie3.jpg'];
-  const whatsappImages = ['whatsapp1.jpg', 'whatsapp2.jpg', 'whatsapp3.jpg', 'whatsapp4.jpg', 'Whatsapp5.jpg'];
+  const selfies = ['selfie1.jpg', 'selfie2.jpg', 'selfie3.jpg', 'Whatsapp5.jpg'];
+  const whatsappImages = ['whatsapp1.jpg', 'whatsapp2.jpg', 'whatsapp3.jpg', 'whatsapp4.jpg'];
   
   const testimonials = [
     "We are second timer, and we tried to apply for 5-room BTO many times but were all unsuccessful. Met up with Robin and he gave us alternative advice and solution to our growing family needs. We managed to upgrade from a 4 room to 5 room smoothly and most importantly, it is within budget and the location that we wanted.\n\nBoth my husband and my work schedule are very packed, and Robin ensured that our time are not compromised",
