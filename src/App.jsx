@@ -8,6 +8,7 @@ import Services from './components/Services/Services';
 import Projects from './components/Projects/Projects';
 import Appraisal from './components/Appraisal/Appraisal';
 import WhatsAppButton from './components/WhatsAppButton/WhatsAppButton';
+import { HashRouter as Router } from 'react-router-dom';
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
